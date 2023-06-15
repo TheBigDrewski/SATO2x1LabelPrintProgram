@@ -1,4 +1,5 @@
 ﻿using SATOPrinterAPI;
+using SerialBarcodeLabelPrint;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace PrintApp
         private readonly Printer _199SATOCT4003 = new Printer();
         private readonly Printer _199SATOCT4004 = new Printer();
         private readonly Printer _199SATOCT4006 = new Printer();
+        private readonly Printer _199SATOCT40022 = new Printer();
 
         public void SetupSATO ()
         {
@@ -37,7 +39,10 @@ namespace PrintApp
             _199SATOCT4006.Interface = Printer.InterfaceType.TCPIP;
             _199SATOCT4006.TCPIPAddress = "10.10.200.29";
             _199SATOCT4006.TCPIPPort = "9100";
-
+            //199SATOCT40022 - Building 200 - Receiving
+            _199SATOCT40022.Interface = Printer.InterfaceType.TCPIP;
+            _199SATOCT40022.TCPIPAddress = "10.10.199.225";
+            _199SATOCT40022.TCPIPPort = "9100";
 
         }
 
@@ -103,7 +108,8 @@ namespace PrintApp
             this.printerComboBox.Items.AddRange(new object[] {
             "199SATOCT4003",
             "199SATOCT4004",
-            "199SATOCT4006"});
+            "199SATOCT4006",
+            "SATOTest"});
             this.printerComboBox.Location = new System.Drawing.Point(23, 307);
             this.printerComboBox.Name = "printerComboBox";
             this.printerComboBox.Size = new System.Drawing.Size(300, 28);
@@ -213,13 +219,27 @@ namespace PrintApp
                         }
                         _199SATOCT4006.Disconnect();
                         break;
+                    case "SATOTest":
+                        SATOTest.Connect();
+
+                        foreach (string line in lines)
+                        {
+                            string sbpl = string.Format(
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+
+                            byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
+                            SATOTest.Query(sbplBytes);
+                        }
+                        SATOTest.Disconnect();
+                        break;
                 }
 
             }
 
             catch (Exception ex) 
             {
-                Console.WriteLine(ex.Message);
+                ExceptionForm exceptionForm = new ExceptionForm(ex);
+                exceptionForm.ShowDialog();
             }
 
         }
@@ -232,11 +252,20 @@ namespace PrintApp
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            //MainForm mainForm = new MainForm();
-            Application.Run(new MainForm());
+                //MainForm mainForm = new MainForm();
+                Application.Run(new MainForm());
+            }
+            catch (System.IO.FileLoadException ex)
+            {
+                string fileName = ex.FileName;
+                Console.WriteLine("FileLoadException: " + ex.Message);
+                Console.WriteLine("File Name: " + fileName);
+            }
         }
     }
 }
