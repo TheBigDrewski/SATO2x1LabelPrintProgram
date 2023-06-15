@@ -15,6 +15,7 @@ namespace PrintApp
         private TextBox printQuantity;
         private Label textBoxInfo;
         private Label quantityBoxInfo;
+        private readonly Success success = new Success();
         private readonly Printer SATOTest = new Printer();
         private readonly Printer _199SATOCT4003 = new Printer();
         private readonly Printer _199SATOCT4004 = new Printer();
@@ -109,6 +110,7 @@ namespace PrintApp
             "199SATOCT4003",
             "199SATOCT4004",
             "199SATOCT4006",
+            "199SATOCT40022",
             "SATOTest"});
             this.printerComboBox.Location = new System.Drawing.Point(23, 307);
             this.printerComboBox.Name = "printerComboBox";
@@ -189,6 +191,7 @@ namespace PrintApp
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT4003.Query(sbplBytes);
+                            success.ShowDialog();
                         }
                         _199SATOCT4003.Disconnect();
                         break;
@@ -203,6 +206,7 @@ namespace PrintApp
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT4004.Query(sbplBytes);
+                            success.ShowDialog();
                         }
                         _199SATOCT4004.Disconnect();
                         break;
@@ -216,6 +220,7 @@ namespace PrintApp
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT4006.Query(sbplBytes);
+                            success.ShowDialog();
                         }
                         _199SATOCT4006.Disconnect();
                         break;
@@ -229,8 +234,23 @@ namespace PrintApp
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             SATOTest.Query(sbplBytes);
+                            success.ShowDialog();
                         }
                         SATOTest.Disconnect();
+                        break;
+                    case "199SATOCT40022":
+                        _199SATOCT40022.Connect();
+
+                        foreach (string line in lines)
+                        {
+                            string sbpl = string.Format(
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+
+                            byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
+                            _199SATOCT40022.Query(sbplBytes);
+                            success.ShowDialog();
+                        }
+                        _199SATOCT40022.Disconnect();
                         break;
                 }
 
