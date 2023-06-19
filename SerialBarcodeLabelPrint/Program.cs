@@ -135,6 +135,7 @@ namespace PrintApp
             this.printQuantity.Name = "printQuantity";
             this.printQuantity.Size = new System.Drawing.Size(223, 26);
             this.printQuantity.TabIndex = 3;
+            this.printQuantity.Text = "1";
             // 
             // textBoxInfo
             // 
@@ -187,7 +188,7 @@ namespace PrintApp
                         foreach (string line in lines)
                         {
                             string sbpl = string.Format(
-                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH070\u001bV025\u001bBG02125{0}\u001bH110\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT4003.Query(sbplBytes);
@@ -202,7 +203,7 @@ namespace PrintApp
                         foreach (string line in lines)
                         {
                             string sbpl = string.Format(
-                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH070\u001bV025\u001bBG02125{0}\u001bH110\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT4004.Query(sbplBytes);
@@ -216,7 +217,7 @@ namespace PrintApp
                         foreach (string line in lines)
                         {
                             string sbpl = string.Format(
-                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH070\u001bV025\u001bBG02125{0}\u001bH110\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT4006.Query(sbplBytes);
@@ -230,7 +231,7 @@ namespace PrintApp
                         foreach (string line in lines)
                         {
                             string sbpl = string.Format(
-                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH070\u001bV025\u001bBG02125{0}\u001bH110\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             SATOTest.Query(sbplBytes);
@@ -244,7 +245,7 @@ namespace PrintApp
                         foreach (string line in lines)
                         {
                             string sbpl = string.Format(
-                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH025\u001bV025\u001bBG03125{0}\u001bH140\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
+                                "\u001bA\u001bA102030406\u001bZ\u001bA\u001bH070\u001bV025\u001bBG02125{0}\u001bH110\u001bV175\u001bWB0{0}\u001bQ{1}\u001bZ", line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
                             _199SATOCT40022.Query(sbplBytes);
