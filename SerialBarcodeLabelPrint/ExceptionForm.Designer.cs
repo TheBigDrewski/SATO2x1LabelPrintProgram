@@ -30,6 +30,8 @@ namespace SerialBarcodeLabelPrint
         /// </summary>
 
         private TableLayoutPanel errorLayoutPanel;
+        private System.Windows.Forms.Label exceptionLabel;
+        private System.Windows.Forms.Label stackTrace;
 
         private void InitializeComponent()
         {
@@ -99,7 +101,5 @@ namespace SerialBarcodeLabelPrint
 
         #endregion
 
-        private System.Windows.Forms.Label exceptionLabel;
-        private System.Windows.Forms.Label stackTrace;
     }
 }
