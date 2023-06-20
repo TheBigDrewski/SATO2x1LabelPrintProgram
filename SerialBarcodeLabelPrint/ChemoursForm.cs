@@ -90,5 +90,12 @@ namespace SerialBarcodeLabelPrint
 
         }
 
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            MainForm landing = new MainForm();
+            this.Hide();
+            landing.ShowDialog();
+            this.Close();
+        }
     }
 }
