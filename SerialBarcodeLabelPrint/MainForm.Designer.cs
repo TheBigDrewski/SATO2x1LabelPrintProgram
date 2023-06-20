@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace SerialBarcodeLabelPrint
 {
-    internal partial class MainForm
+    public partial class MainForm
     {
         // Required designer variable.
         private System.ComponentModel.IContainer components = null;

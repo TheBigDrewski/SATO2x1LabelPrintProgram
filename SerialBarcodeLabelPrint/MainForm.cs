@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SerialBarcodeLabelPrint
 {
-    internal partial class MainForm : Form
+    public partial class MainForm : Form
     {
         public MainForm()
         {
