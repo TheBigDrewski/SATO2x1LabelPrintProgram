@@ -1,9 +1,9 @@
-using SATOPrinterAPI;
+﻿using SATOPrinterAPI;
 using System.Windows.Forms;
 
 namespace SerialBarcodeLabelPrint
 {
-    public partial class ChemoursForm
+    public partial class ProductionLabelForm : Form
     {
         // Required designer variable.
         private System.ComponentModel.IContainer components = null;
@@ -22,21 +22,17 @@ namespace SerialBarcodeLabelPrint
         //
         //MainForm Variable Declarations
         //
-        private TableLayoutPanel chemoursLayoutPanel;
+        private TableLayoutPanel productionLayoutPanel;
         private TextBox lotTextBox;
         private TextBox fillDateTextBox;
-        private TextBox netWeightTextBox;
-        private TextBox tareWeightTextBox;
-        private TextBox grossWeightTextBox;
+        private TextBox productTextBox;
         private TextBox serialTextBox;
         private TextBox printQuantityTextBox;
         private Button printButton;
         private Button home;
         private Label lotInfo;
         private Label fillDateInfo;
-        private Label netWeightInfo;
-        private Label tareWeightInfo;
-        private Label grossWeightInfo;
+        private Label productInfo;
         private Label serialInfo;
         private Label printQuantityInfo;
         private ComboBox printerComboBox;
@@ -44,66 +40,58 @@ namespace SerialBarcodeLabelPrint
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChemoursForm));
-            this.chemoursLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.productionLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.home = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
             this.lotInfo = new System.Windows.Forms.Label();
             this.fillDateInfo = new System.Windows.Forms.Label();
-            this.netWeightInfo = new System.Windows.Forms.Label();
-            this.tareWeightInfo = new System.Windows.Forms.Label();
-            this.grossWeightInfo = new System.Windows.Forms.Label();
+            this.productInfo = new System.Windows.Forms.Label();
             this.lotTextBox = new System.Windows.Forms.TextBox();
             this.fillDateTextBox = new System.Windows.Forms.TextBox();
-            this.netWeightTextBox = new System.Windows.Forms.TextBox();
-            this.tareWeightTextBox = new System.Windows.Forms.TextBox();
-            this.grossWeightTextBox = new System.Windows.Forms.TextBox();
+            this.productTextBox = new System.Windows.Forms.TextBox();
             this.serialTextBox = new System.Windows.Forms.TextBox();
             this.printerComboBox = new System.Windows.Forms.ComboBox();
             this.serialInfo = new System.Windows.Forms.Label();
             this.printQuantityInfo = new System.Windows.Forms.Label();
             this.printQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.chemoursLayoutPanel.SuspendLayout();
+            this.productionLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // chemoursLayoutPanel
+            // productionLayoutPanel
             // 
-            this.chemoursLayoutPanel.ColumnCount = 2;
-            this.chemoursLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.15385F));
-            this.chemoursLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.84615F));
-            this.chemoursLayoutPanel.Controls.Add(this.home, 1, 8);
-            this.chemoursLayoutPanel.Controls.Add(this.printButton, 1, 7);
-            this.chemoursLayoutPanel.Controls.Add(this.lotInfo, 0, 0);
-            this.chemoursLayoutPanel.Controls.Add(this.fillDateInfo, 0, 1);
-            this.chemoursLayoutPanel.Controls.Add(this.netWeightInfo, 0, 2);
-            this.chemoursLayoutPanel.Controls.Add(this.tareWeightInfo, 0, 3);
-            this.chemoursLayoutPanel.Controls.Add(this.grossWeightInfo, 0, 4);
-            this.chemoursLayoutPanel.Controls.Add(this.lotTextBox, 1, 0);
-            this.chemoursLayoutPanel.Controls.Add(this.fillDateTextBox, 1, 1);
-            this.chemoursLayoutPanel.Controls.Add(this.netWeightTextBox, 1, 2);
-            this.chemoursLayoutPanel.Controls.Add(this.tareWeightTextBox, 1, 3);
-            this.chemoursLayoutPanel.Controls.Add(this.grossWeightTextBox, 1, 4);
-            this.chemoursLayoutPanel.Controls.Add(this.serialTextBox, 1, 5);
-            this.chemoursLayoutPanel.Controls.Add(this.printerComboBox, 0, 7);
-            this.chemoursLayoutPanel.Controls.Add(this.serialInfo, 0, 5);
-            this.chemoursLayoutPanel.Controls.Add(this.printQuantityInfo, 0, 6);
-            this.chemoursLayoutPanel.Controls.Add(this.printQuantityTextBox, 1, 6);
-            this.chemoursLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chemoursLayoutPanel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chemoursLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.chemoursLayoutPanel.Name = "chemoursLayoutPanel";
-            this.chemoursLayoutPanel.Padding = new System.Windows.Forms.Padding(20);
-            this.chemoursLayoutPanel.RowCount = 9;
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.chemoursLayoutPanel.Size = new System.Drawing.Size(560, 466);
-            this.chemoursLayoutPanel.TabIndex = 0;
+            this.productionLayoutPanel.ColumnCount = 2;
+            this.productionLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.15385F));
+            this.productionLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.84615F));
+            this.productionLayoutPanel.Controls.Add(this.home, 1, 8);
+            this.productionLayoutPanel.Controls.Add(this.printButton, 1, 7);
+            this.productionLayoutPanel.Controls.Add(this.lotInfo, 0, 0);
+            this.productionLayoutPanel.Controls.Add(this.fillDateInfo, 0, 1);
+            this.productionLayoutPanel.Controls.Add(this.productInfo, 0, 2);
+            this.productionLayoutPanel.Controls.Add(this.lotTextBox, 1, 0);
+            this.productionLayoutPanel.Controls.Add(this.fillDateTextBox, 1, 1);
+            this.productionLayoutPanel.Controls.Add(this.productTextBox, 1, 2);
+            this.productionLayoutPanel.Controls.Add(this.serialTextBox, 1, 5);
+            this.productionLayoutPanel.Controls.Add(this.printerComboBox, 0, 7);
+            this.productionLayoutPanel.Controls.Add(this.serialInfo, 0, 5);
+            this.productionLayoutPanel.Controls.Add(this.printQuantityInfo, 0, 6);
+            this.productionLayoutPanel.Controls.Add(this.printQuantityTextBox, 1, 6);
+            this.productionLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productionLayoutPanel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productionLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.productionLayoutPanel.Name = "productionLayoutPanel";
+            this.productionLayoutPanel.Padding = new System.Windows.Forms.Padding(20);
+            this.productionLayoutPanel.RowCount = 9;
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.productionLayoutPanel.Size = new System.Drawing.Size(560, 466);
+            this.productionLayoutPanel.TabIndex = 0;
             // 
             // home
             // 
@@ -146,35 +134,15 @@ namespace SerialBarcodeLabelPrint
             this.fillDateInfo.Size = new System.Drawing.Size(80, 20);
             this.fillDateInfo.Text = "FILL DATE:";
             // 
-            // netWeightInfo
+            // productInfo
             // 
-            this.netWeightInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.netWeightInfo.AutoSize = true;
-            this.netWeightInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.netWeightInfo.Location = new System.Drawing.Point(111, 142);
-            this.netWeightInfo.Name = "netWeightInfo";
-            this.netWeightInfo.Size = new System.Drawing.Size(94, 20);
-            this.netWeightInfo.Text = "NET WEIGHT:";
-            // 
-            // tareWeightInfo
-            // 
-            this.tareWeightInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tareWeightInfo.AutoSize = true;
-            this.tareWeightInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tareWeightInfo.Location = new System.Drawing.Point(102, 187);
-            this.tareWeightInfo.Name = "tareWeightInfo";
-            this.tareWeightInfo.Size = new System.Drawing.Size(103, 20);
-            this.tareWeightInfo.Text = "TARE WEIGHT:";
-            // 
-            // grossWeightInfo
-            // 
-            this.grossWeightInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.grossWeightInfo.AutoSize = true;
-            this.grossWeightInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grossWeightInfo.Location = new System.Drawing.Point(90, 232);
-            this.grossWeightInfo.Name = "grossWeightInfo";
-            this.grossWeightInfo.Size = new System.Drawing.Size(115, 20);
-            this.grossWeightInfo.Text = "GROSS WEIGHT:";
+            this.productInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.productInfo.AutoSize = true;
+            this.productInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productInfo.Location = new System.Drawing.Point(111, 142);
+            this.productInfo.Name = "productInfo";
+            this.productInfo.Size = new System.Drawing.Size(94, 20);
+            this.productInfo.Text = "NET WEIGHT:";
             // 
             // serialInfo
             // 
@@ -218,35 +186,15 @@ namespace SerialBarcodeLabelPrint
             this.fillDateTextBox.KeyDown += TextBox_KeyDown;
             this.fillDateTextBox.TabIndex = 1;
             // 
-            // netWeightTextBox
+            // productTextBox
             // 
-            this.netWeightTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.netWeightTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.netWeightTextBox.Location = new System.Drawing.Point(211, 139);
-            this.netWeightTextBox.Name = "netWeightTextBox";
-            this.netWeightTextBox.Size = new System.Drawing.Size(326, 26);
-            this.netWeightTextBox.KeyDown += TextBox_KeyDown;
-            this.netWeightTextBox.TabIndex = 2;
-            // 
-            // tareWeightTextBox
-            // 
-            this.tareWeightTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tareWeightTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tareWeightTextBox.Location = new System.Drawing.Point(211, 184);
-            this.tareWeightTextBox.Name = "tareWeightTextBox";
-            this.tareWeightTextBox.Size = new System.Drawing.Size(326, 26);
-            this.tareWeightTextBox.KeyDown += TextBox_KeyDown;
-            this.tareWeightTextBox.TabIndex = 3;
-            // 
-            // grossWeightTextBox
-            // 
-            this.grossWeightTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grossWeightTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grossWeightTextBox.Location = new System.Drawing.Point(211, 229);
-            this.grossWeightTextBox.Name = "grossWeightTextBox";
-            this.grossWeightTextBox.Size = new System.Drawing.Size(326, 26);
-            this.grossWeightTextBox.KeyDown += TextBox_KeyDown;
-            this.grossWeightTextBox.TabIndex = 4;
+            this.productTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.productTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productTextBox.Location = new System.Drawing.Point(211, 139);
+            this.productTextBox.Name = "productTextBox";
+            this.productTextBox.Size = new System.Drawing.Size(326, 26);
+            this.productTextBox.KeyDown += TextBox_KeyDown;
+            this.productTextBox.TabIndex = 2;
             // 
             // serialTextBox
             // 
@@ -256,7 +204,7 @@ namespace SerialBarcodeLabelPrint
             this.serialTextBox.Name = "serialTextBox";
             this.serialTextBox.Size = new System.Drawing.Size(326, 26);
             this.serialTextBox.KeyDown += TextBox_KeyDown;
-            this.serialTextBox.TabIndex = 5;
+            this.serialTextBox.TabIndex = 3;
             // 
             // printQuantityTextBox
             // 
@@ -266,7 +214,7 @@ namespace SerialBarcodeLabelPrint
             this.printQuantityTextBox.Name = "printQuantityTextBox";
             this.printQuantityTextBox.Size = new System.Drawing.Size(326, 26);
             this.printQuantityTextBox.KeyDown += TextBox_KeyDown;
-            this.printQuantityTextBox.TabIndex = 6;
+            this.printQuantityTextBox.TabIndex = 4;
             this.printQuantityTextBox.Text = "1";
             // 
             // printerComboBox
@@ -283,22 +231,22 @@ namespace SerialBarcodeLabelPrint
             this.printerComboBox.Location = new System.Drawing.Point(23, 363);
             this.printerComboBox.Name = "printerComboBox";
             this.printerComboBox.Size = new System.Drawing.Size(182, 28);
-            this.printerComboBox.TabIndex = 7;
+            this.printerComboBox.TabIndex = 5;
             // 
             // ChemoursForm
             // 
             this.ClientSize = new System.Drawing.Size(560, 466);
-            this.Controls.Add(this.chemoursLayoutPanel);
+            this.Controls.Add(this.productionLayoutPanel);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "ChemoursForm";
+            this.Name = "ProductionLabelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chemours Label Printing Program";
-            this.chemoursLayoutPanel.ResumeLayout(false);
-            this.chemoursLayoutPanel.PerformLayout();
+            this.Text = "Production Label Printing Program";
+            this.productionLayoutPanel.ResumeLayout(false);
+            this.productionLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }

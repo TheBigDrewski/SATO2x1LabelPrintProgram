@@ -12,17 +12,25 @@ namespace SerialBarcodeLabelPrint
 
         private void ChemourButtonClick(object sender, EventArgs e)
         {
-            ChemoursForm ch = new ChemoursForm();
+            ChemoursForm chem = new ChemoursForm();
             this.Hide();
-            ch.ShowDialog();
+            chem.ShowDialog();
             this.Close();
         }
 
         private void BarcodeButtonClick(object sender, EventArgs e)
         {
-            BarcodeLabelForm bc = new BarcodeLabelForm();
+            BarcodeLabelForm barcode = new BarcodeLabelForm();
             this.Hide();
-            bc.ShowDialog();
+            barcode.ShowDialog();
+            this.Close();
+        }
+
+        private void ProductionButtonClick(object sender, EventArgs e)
+        {
+            ProductionLabelForm prod = new ProductionLabelForm();
+            this.Hide();
+            prod.ShowDialog();
             this.Close();
         }
     }
