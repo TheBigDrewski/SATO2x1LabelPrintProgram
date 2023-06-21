@@ -56,7 +56,7 @@ namespace SerialBarcodeLabelPrint
             // chemours
             // 
             this.chemours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chemours.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chemours.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chemours.Location = new System.Drawing.Point(23, 23);
             this.chemours.Name = "chemours";
             this.chemours.Size = new System.Drawing.Size(258, 315);
@@ -67,7 +67,7 @@ namespace SerialBarcodeLabelPrint
             // barcode
             // 
             this.barcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barcode.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barcode.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barcode.Location = new System.Drawing.Point(287, 23);
             this.barcode.Name = "barcode";
             this.barcode.Size = new System.Drawing.Size(274, 315);

@@ -1,3 +1,4 @@
+using SATOPrinterAPI;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -9,11 +10,51 @@ namespace SerialBarcodeLabelPrint
         public ChemoursForm()
         {
             InitializeComponent();
-            SetupSATO();
         }
 
         private void PrintButton_Click(object sender, EventArgs e)
         {
+            //
+            // SATOTest
+            //
+            Printer SATOTest = new Printer
+            {
+                Interface = Printer.InterfaceType.TCPIP,
+                TCPIPAddress = "10.10.200.82",
+                TCPIPPort = "9100"
+            };
+            //
+            // 199SATOCT40022 - Building 200 - Receiving
+            //
+            Printer _199SATOCT40022 = new Printer
+            {
+                Interface = Printer.InterfaceType.TCPIP,
+                TCPIPAddress = "10.10.199.225",
+                TCPIPPort = "9100",
+                PermanentConnect = true
+            };
+            //199SATOCT4003 - Building 200 - Prep Station 4
+            Printer _199SATOCT4003 = new Printer
+            {
+                Interface = Printer.InterfaceType.TCPIP,
+                TCPIPAddress = "10.10.199.220",
+                TCPIPPort = "9100"
+            };
+            //199SATOCT4004 - Building 200 - Prep Station 2
+            Printer _199SATOCT4004 = new Printer
+            {
+                Interface = Printer.InterfaceType.TCPIP,
+                TCPIPAddress = "10.10.200.27",
+                TCPIPPort = "9100"
+            };
+            //199SATOCT4006 - Building 200 - Prep Station 3
+            Printer _199SATOCT4006 = new Printer
+            {
+                Interface = Printer.InterfaceType.TCPIP,
+                TCPIPAddress = "10.10.200.29",
+                TCPIPPort = "9100"
+            };
+
             string[] data = new string[] 
                 {   lotTextBox.Text, 
                     fillDateTextBox.Text, 
@@ -45,6 +86,7 @@ namespace SerialBarcodeLabelPrint
 
             try
             {
+                Success success = new Success();
                 switch (printerComboBox.Text)
                 {
                     case "199SATOCT4003":
@@ -79,7 +121,6 @@ namespace SerialBarcodeLabelPrint
                         _199SATOCT40022.Disconnect();
                         break;
                 }
-
             }
 
             catch (Exception ex)

@@ -30,12 +30,7 @@ namespace SerialBarcodeLabelPrint
         private TextBox printQuantity;
         private Label textBoxInfo;
         private Label quantityBoxInfo;
-        private readonly Success success = new Success();
-        private readonly Printer SATOTest = new Printer();
-        private readonly Printer _199SATOCT4003 = new Printer();
-        private readonly Printer _199SATOCT4004 = new Printer();
-        private readonly Printer _199SATOCT4006 = new Printer();
-        private readonly Printer _199SATOCT40022 = new Printer();
+        //private readonly Success success = new Success();
 
         private void InitializeComponent()
         {
@@ -169,31 +164,6 @@ namespace SerialBarcodeLabelPrint
             this.barcodeLayoutPanel.ResumeLayout(false);
             this.barcodeLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
-
-        }
-
-        public void SetupSATO()
-        {
-            //SATOTest
-            SATOTest.Interface = Printer.InterfaceType.TCPIP;
-            SATOTest.TCPIPAddress = "10.10.200.82";
-            SATOTest.TCPIPPort = "9100";
-            //199SATOCT4003 - Building 200 - Prep Station 4
-            _199SATOCT4003.Interface = Printer.InterfaceType.TCPIP;
-            _199SATOCT4003.TCPIPAddress = "10.10.199.220";
-            _199SATOCT4003.TCPIPPort = "9100";
-            //199SATOCT4004 - Building 200 - Prep Station 2
-            _199SATOCT4004.Interface = Printer.InterfaceType.TCPIP;
-            _199SATOCT4004.TCPIPAddress = "10.10.200.27";
-            _199SATOCT4004.TCPIPPort = "9100";
-            //199SATOCT4006 - Building 200 - Prep Station 3
-            _199SATOCT4006.Interface = Printer.InterfaceType.TCPIP;
-            _199SATOCT4006.TCPIPAddress = "10.10.200.29";
-            _199SATOCT4006.TCPIPPort = "9100";
-            //199SATOCT40022 - Building 200 - Receiving
-            _199SATOCT40022.Interface = Printer.InterfaceType.TCPIP;
-            _199SATOCT40022.TCPIPAddress = "10.10.199.225";
-            _199SATOCT40022.TCPIPPort = "9100";
 
         }
 

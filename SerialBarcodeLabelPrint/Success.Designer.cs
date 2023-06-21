@@ -4,15 +4,11 @@ namespace SerialBarcodeLabelPrint
 {
     partial class Success
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        // Required designer variable.
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        // Clean up any resources being used.
+        // <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,17 +18,15 @@ namespace SerialBarcodeLabelPrint
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-       
+        // Required method for Designer support - do not modify
+        // the contents of this method with the code editor.     
         private TableLayoutPanel successLayoutPanel;
+        private System.Windows.Forms.Label printLabel;
+        private System.Windows.Forms.Button okButton;
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Success));
             this.successLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.printLabel = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
@@ -54,21 +48,21 @@ namespace SerialBarcodeLabelPrint
             this.successLayoutPanel.Name = "successLayoutPanel";
             this.successLayoutPanel.Padding = new System.Windows.Forms.Padding(20);
             this.successLayoutPanel.RowCount = 2;
-            this.successLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
-            this.successLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.54839F));
+            this.successLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.6129F));
+            this.successLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.3871F));
             this.successLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.successLayoutPanel.Size = new System.Drawing.Size(157, 102);
+            this.successLayoutPanel.Size = new System.Drawing.Size(170, 144);
             this.successLayoutPanel.TabIndex = 0;
             // 
             // printLabel
             // 
             this.printLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.printLabel.AutoSize = true;
-            this.printLabel.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.printLabel.Location = new System.Drawing.Point(31, 21);
+            this.printLabel.Location = new System.Drawing.Point(23, 30);
             this.printLabel.Name = "printLabel";
-            this.printLabel.Size = new System.Drawing.Size(95, 32);
+            this.printLabel.Size = new System.Drawing.Size(124, 32);
             this.printLabel.TabIndex = 0;
             this.printLabel.Text = "Labels have been sent to the printer";
             // 
@@ -76,9 +70,9 @@ namespace SerialBarcodeLabelPrint
             // 
             this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.okButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.okButton.Location = new System.Drawing.Point(53, 58);
+            this.okButton.Location = new System.Drawing.Point(55, 89);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(50, 21);
+            this.okButton.Size = new System.Drawing.Size(60, 32);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -87,19 +81,19 @@ namespace SerialBarcodeLabelPrint
             // 
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(157, 102);
+            this.ClientSize = new System.Drawing.Size(170, 144);
             this.Controls.Add(this.successLayoutPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Success";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Label Sent";
             this.successLayoutPanel.ResumeLayout(false);
             this.successLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
-
-        #endregion
-
-        private System.Windows.Forms.Label printLabel;
-        private System.Windows.Forms.Button okButton;
     }
 }

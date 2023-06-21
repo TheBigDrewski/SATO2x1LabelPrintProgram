@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SerialBarcodeLabelPrint
@@ -8,10 +9,17 @@ namespace SerialBarcodeLabelPrint
         public Success()
         {
             InitializeComponent();
+            Timeout();
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private async void Timeout()
+        {
+            await Task.Delay(3000);
             this.Close();
         }
     }
