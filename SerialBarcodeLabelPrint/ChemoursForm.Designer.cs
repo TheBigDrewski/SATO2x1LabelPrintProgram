@@ -111,7 +111,7 @@ namespace SerialBarcodeLabelPrint
             this.home.Location = new System.Drawing.Point(211, 403);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(326, 40);
-            this.home.TabIndex = 0;
+            this.home.TabIndex = 9;
             this.home.Text = "Home";
             this.home.Click += new System.EventHandler(this.HomeButton_Click);
             // 
@@ -122,7 +122,7 @@ namespace SerialBarcodeLabelPrint
             this.printButton.Location = new System.Drawing.Point(211, 358);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(326, 39);
-            this.printButton.TabIndex = 1;
+            this.printButton.TabIndex = 8;
             this.printButton.Text = "Print";
             this.printButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
@@ -134,7 +134,6 @@ namespace SerialBarcodeLabelPrint
             this.lotInfo.Location = new System.Drawing.Point(106, 37);
             this.lotInfo.Name = "lotInfo";
             this.lotInfo.Size = new System.Drawing.Size(99, 20);
-            this.lotInfo.TabIndex = 4;
             this.lotInfo.Text = "LOT NUMBER:";
             // 
             // fillDateInfo
@@ -145,7 +144,6 @@ namespace SerialBarcodeLabelPrint
             this.fillDateInfo.Location = new System.Drawing.Point(125, 92);
             this.fillDateInfo.Name = "fillDateInfo";
             this.fillDateInfo.Size = new System.Drawing.Size(80, 20);
-            this.fillDateInfo.TabIndex = 5;
             this.fillDateInfo.Text = "FILL DATE:";
             // 
             // netWeightInfo
@@ -156,7 +154,6 @@ namespace SerialBarcodeLabelPrint
             this.netWeightInfo.Location = new System.Drawing.Point(111, 142);
             this.netWeightInfo.Name = "netWeightInfo";
             this.netWeightInfo.Size = new System.Drawing.Size(94, 20);
-            this.netWeightInfo.TabIndex = 4;
             this.netWeightInfo.Text = "NET WEIGHT:";
             // 
             // tareWeightInfo
@@ -167,7 +164,6 @@ namespace SerialBarcodeLabelPrint
             this.tareWeightInfo.Location = new System.Drawing.Point(102, 187);
             this.tareWeightInfo.Name = "tareWeightInfo";
             this.tareWeightInfo.Size = new System.Drawing.Size(103, 20);
-            this.tareWeightInfo.TabIndex = 5;
             this.tareWeightInfo.Text = "TARE WEIGHT:";
             // 
             // grossWeightInfo
@@ -178,8 +174,29 @@ namespace SerialBarcodeLabelPrint
             this.grossWeightInfo.Location = new System.Drawing.Point(90, 232);
             this.grossWeightInfo.Name = "grossWeightInfo";
             this.grossWeightInfo.Size = new System.Drawing.Size(115, 20);
-            this.grossWeightInfo.TabIndex = 4;
             this.grossWeightInfo.Text = "GROSS WEIGHT:";
+            // 
+            // serialInfo
+            // 
+            this.serialInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.serialInfo.AutoSize = true;
+            this.serialInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serialInfo.Location = new System.Drawing.Point(84, 277);
+            this.serialInfo.Name = "serialInfo";
+            this.serialInfo.Size = new System.Drawing.Size(121, 20);
+            this.serialInfo.Text = "SERIAL NUMBER:";
+            this.serialInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // printQuantityInfo
+            // 
+            this.printQuantityInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.printQuantityInfo.AutoSize = true;
+            this.printQuantityInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printQuantityInfo.Location = new System.Drawing.Point(40, 312);
+            this.printQuantityInfo.Name = "printQuantityInfo";
+            this.printQuantityInfo.Size = new System.Drawing.Size(165, 40);
+            this.printQuantityInfo.Text = "NUMBER OF LABELS TO PRINT:";
+            this.printQuantityInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lotTextBox
             // 
@@ -188,6 +205,7 @@ namespace SerialBarcodeLabelPrint
             this.lotTextBox.Location = new System.Drawing.Point(211, 34);
             this.lotTextBox.Name = "lotTextBox";
             this.lotTextBox.Size = new System.Drawing.Size(326, 26);
+            this.lotTextBox.KeyDown += TextBox_KeyDown;
             this.lotTextBox.TabIndex = 0;
             // 
             // fillDateTextBox
@@ -197,7 +215,8 @@ namespace SerialBarcodeLabelPrint
             this.fillDateTextBox.Location = new System.Drawing.Point(211, 89);
             this.fillDateTextBox.Name = "fillDateTextBox";
             this.fillDateTextBox.Size = new System.Drawing.Size(326, 26);
-            this.fillDateTextBox.TabIndex = 0;
+            this.fillDateTextBox.KeyDown += TextBox_KeyDown;
+            this.fillDateTextBox.TabIndex = 1;
             // 
             // netWeightTextBox
             // 
@@ -205,9 +224,9 @@ namespace SerialBarcodeLabelPrint
             this.netWeightTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.netWeightTextBox.Location = new System.Drawing.Point(211, 139);
             this.netWeightTextBox.Name = "netWeightTextBox";
-            this.netWeightTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.netWeightTextBox.Size = new System.Drawing.Size(326, 26);
-            this.netWeightTextBox.TabIndex = 0;
+            this.netWeightTextBox.KeyDown += TextBox_KeyDown;
+            this.netWeightTextBox.TabIndex = 2;
             // 
             // tareWeightTextBox
             // 
@@ -216,7 +235,8 @@ namespace SerialBarcodeLabelPrint
             this.tareWeightTextBox.Location = new System.Drawing.Point(211, 184);
             this.tareWeightTextBox.Name = "tareWeightTextBox";
             this.tareWeightTextBox.Size = new System.Drawing.Size(326, 26);
-            this.tareWeightTextBox.TabIndex = 0;
+            this.tareWeightTextBox.KeyDown += TextBox_KeyDown;
+            this.tareWeightTextBox.TabIndex = 3;
             // 
             // grossWeightTextBox
             // 
@@ -224,9 +244,9 @@ namespace SerialBarcodeLabelPrint
             this.grossWeightTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grossWeightTextBox.Location = new System.Drawing.Point(211, 229);
             this.grossWeightTextBox.Name = "grossWeightTextBox";
-            this.grossWeightTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grossWeightTextBox.Size = new System.Drawing.Size(326, 26);
-            this.grossWeightTextBox.TabIndex = 0;
+            this.grossWeightTextBox.KeyDown += TextBox_KeyDown;
+            this.grossWeightTextBox.TabIndex = 4;
             // 
             // serialTextBox
             // 
@@ -235,7 +255,19 @@ namespace SerialBarcodeLabelPrint
             this.serialTextBox.Location = new System.Drawing.Point(211, 274);
             this.serialTextBox.Name = "serialTextBox";
             this.serialTextBox.Size = new System.Drawing.Size(326, 26);
-            this.serialTextBox.TabIndex = 0;
+            this.serialTextBox.KeyDown += TextBox_KeyDown;
+            this.serialTextBox.TabIndex = 5;
+            // 
+            // printQuantityTextBox
+            // 
+            this.printQuantityTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.printQuantityTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printQuantityTextBox.Location = new System.Drawing.Point(211, 319);
+            this.printQuantityTextBox.Name = "printQuantityTextBox";
+            this.printQuantityTextBox.Size = new System.Drawing.Size(326, 26);
+            this.printQuantityTextBox.KeyDown += TextBox_KeyDown;
+            this.printQuantityTextBox.TabIndex = 6;
+            this.printQuantityTextBox.Text = "1";
             // 
             // printerComboBox
             // 
@@ -251,42 +283,7 @@ namespace SerialBarcodeLabelPrint
             this.printerComboBox.Location = new System.Drawing.Point(23, 363);
             this.printerComboBox.Name = "printerComboBox";
             this.printerComboBox.Size = new System.Drawing.Size(182, 28);
-            this.printerComboBox.Text = "199SATOCT4003";
-            this.printerComboBox.TabIndex = 2;
-            // 
-            // serialInfo
-            // 
-            this.serialInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.serialInfo.AutoSize = true;
-            this.serialInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serialInfo.Location = new System.Drawing.Point(84, 277);
-            this.serialInfo.Name = "serialInfo";
-            this.serialInfo.Size = new System.Drawing.Size(121, 20);
-            this.serialInfo.TabIndex = 5;
-            this.serialInfo.Text = "SERIAL NUMBER:";
-            this.serialInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // printQuantityInfo
-            // 
-            this.printQuantityInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.printQuantityInfo.AutoSize = true;
-            this.printQuantityInfo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printQuantityInfo.Location = new System.Drawing.Point(40, 312);
-            this.printQuantityInfo.Name = "printQuantityInfo";
-            this.printQuantityInfo.Size = new System.Drawing.Size(165, 40);
-            this.printQuantityInfo.TabIndex = 5;
-            this.printQuantityInfo.Text = "NUMBER OF LABELS TO PRINT:";
-            this.printQuantityInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // printQuantityTextBox
-            // 
-            this.printQuantityTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.printQuantityTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printQuantityTextBox.Location = new System.Drawing.Point(211, 319);
-            this.printQuantityTextBox.Name = "printQuantityTextBox";
-            this.printQuantityTextBox.Size = new System.Drawing.Size(326, 26);
-            this.printQuantityTextBox.TabIndex = 0;
-            this.printQuantityTextBox.Text = "1";
+            this.printerComboBox.TabIndex = 7;
             // 
             // ChemoursForm
             // 
@@ -295,6 +292,7 @@ namespace SerialBarcodeLabelPrint
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "ChemoursForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

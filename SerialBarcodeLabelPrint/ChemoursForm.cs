@@ -138,5 +138,16 @@ namespace SerialBarcodeLabelPrint
             landing.ShowDialog();
             this.Close();
         }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) 
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
     }
 }
