@@ -25,7 +25,7 @@ namespace SerialBarcodeLabelPrint
         private TableLayoutPanel barcodeLayoutPanel;
         private TextBox inputTextBox;
         private Button printButton;
-        private Button exit;
+        private Button home;
         private ComboBox printerComboBox;
         private TextBox printQuantity;
         private Label textBoxInfo;
@@ -41,7 +41,7 @@ namespace SerialBarcodeLabelPrint
         {
             this.barcodeLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.printButton = new System.Windows.Forms.Button();
-            this.exit = new System.Windows.Forms.Button();
+            this.home = new System.Windows.Forms.Button();
             this.printerComboBox = new System.Windows.Forms.ComboBox();
             this.inputTextBox = new System.Windows.Forms.TextBox();
             this.printQuantity = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@ namespace SerialBarcodeLabelPrint
             this.barcodeLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.470588F));
             this.barcodeLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.barcodeLayoutPanel.Controls.Add(this.printButton, 1, 2);
-            this.barcodeLayoutPanel.Controls.Add(this.exit, 2, 3);
+            this.barcodeLayoutPanel.Controls.Add(this.home, 2, 3);
             this.barcodeLayoutPanel.Controls.Add(this.printerComboBox, 0, 2);
             this.barcodeLayoutPanel.Controls.Add(this.inputTextBox, 0, 1);
             this.barcodeLayoutPanel.Controls.Add(this.printQuantity, 1, 1);
@@ -90,13 +90,13 @@ namespace SerialBarcodeLabelPrint
             // 
             // exit
             // 
-            this.exit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exit.Location = new System.Drawing.Point(334, 394);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(227, 30);
-            this.exit.TabIndex = 0;
-            this.exit.Text = "Exit";
-            this.exit.Click += new System.EventHandler(this.ExitButton_Click);
+            this.home.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.home.Location = new System.Drawing.Point(334, 394);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(227, 30);
+            this.home.TabIndex = 0;
+            this.home.Text = "Home";
+            this.home.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // printerComboBox
             // 
@@ -163,6 +163,7 @@ namespace SerialBarcodeLabelPrint
             this.MaximizeBox = false;
             this.Name = "BarcodeLabelForm";
             this.Text = "Serial Barcode Label Print Program";
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.barcodeLayoutPanel.ResumeLayout(false);
             this.barcodeLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

@@ -33,12 +33,12 @@ namespace SerialBarcodeLabelPrint
                             "\u001b#E5" +
                             "\u001bZ" +
                             "\u001bA" +
-                            "\u001bH025\u001bV030\u001bRDB00,P08,P08,LOT NUMBER:\u001bH200\u001bV030\u001bRDB00,P08,P08,{0}" +
-                            "\u001bH025\u001bV060\u001bRDB00,P08,P08,FILL DATE:\u001bH200\u001bV060\u001bRDB00,P08,P08,{1}" +
-                            "\u001bH025\u001bV090\u001bRDB00,P08,P08,NET WT:\u001bH200\u001bV090\u001bRDB00,P08,P08,{2}" +
-                            "\u001bH025\u001bV120\u001bRDB00,P08,P08,TARE WT:\u001bH200\u001bV120\u001bRDB00,P08,P08,{3}" +
-                            "\u001bH025\u001bV150\u001bRDB00,P08,P08,GROSS WT:\u001bH200\u001bV150\u001bRDB00,P08,P08,{4}" +
-                            "\u001bH025\u001bV180\u001bRDB00,P08,P08,SERIAL NUMBER:\u001bH225\u001bV180\u001bRDB00,P08,P08,{5}" +
+                            "\u001bH025\u001bV030\u001bRDB00,P10,P10,LOT #:\u001bH195\u001bV030\u001bRDB00,P10,P10,{0}" +
+                            "\u001bH025\u001bV060\u001bRDB00,P10,P10,FILL DATE:\u001bH195\u001bV060\u001bRDB00,P10,P10,{1}" +
+                            "\u001bH025\u001bV090\u001bRDB00,P10,P10,NET WT:\u001bH195\u001bV090\u001bRDB00,P10,P10,{2}" +
+                            "\u001bH025\u001bV120\u001bRDB00,P10,P10,TARE WT:\u001bH195\u001bV120\u001bRDB00,P10,P10,{3}" +
+                            "\u001bH025\u001bV150\u001bRDB00,P10,P10,GROSS WT:\u001bH195\u001bV150\u001bRDB00,P10,P10,{4}" +
+                            "\u001bH025\u001bV180\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV180\u001bRDB00,P10,P10,{5}" +
                             "\u001bQ{6}\u001bZ",
                             data[0], data[1], data[2], data[3], data[4], data[5], quantity);
             
@@ -90,7 +90,7 @@ namespace SerialBarcodeLabelPrint
 
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void HomeButton_Click(object sender, EventArgs e)
         {
             MainForm landing = new MainForm();
             this.Hide();

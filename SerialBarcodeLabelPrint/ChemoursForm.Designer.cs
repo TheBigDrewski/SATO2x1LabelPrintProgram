@@ -31,7 +31,7 @@ namespace SerialBarcodeLabelPrint
         private TextBox serialTextBox;
         private TextBox printQuantityTextBox;
         private Button printButton;
-        private Button exit;
+        private Button home;
         private Label lotInfo;
         private Label fillDateInfo;
         private Label netWeightInfo;
@@ -50,7 +50,7 @@ namespace SerialBarcodeLabelPrint
         private void InitializeComponent()
         {
             this.chemoursLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.exit = new System.Windows.Forms.Button();
+            this.home = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
             this.lotInfo = new System.Windows.Forms.Label();
             this.fillDateInfo = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@ namespace SerialBarcodeLabelPrint
             this.chemoursLayoutPanel.ColumnCount = 2;
             this.chemoursLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.15385F));
             this.chemoursLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.84615F));
-            this.chemoursLayoutPanel.Controls.Add(this.exit, 1, 8);
+            this.chemoursLayoutPanel.Controls.Add(this.home, 1, 8);
             this.chemoursLayoutPanel.Controls.Add(this.printButton, 1, 7);
             this.chemoursLayoutPanel.Controls.Add(this.lotInfo, 0, 0);
             this.chemoursLayoutPanel.Controls.Add(this.fillDateInfo, 0, 1);
@@ -112,13 +112,13 @@ namespace SerialBarcodeLabelPrint
             // 
             // exit
             // 
-            this.exit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exit.Location = new System.Drawing.Point(211, 387);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(326, 37);
-            this.exit.TabIndex = 0;
-            this.exit.Text = "Exit";
-            this.exit.Click += new System.EventHandler(this.ExitButton_Click);
+            this.home.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.home.Location = new System.Drawing.Point(211, 387);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(326, 37);
+            this.home.TabIndex = 0;
+            this.home.Text = "Home";
+            this.home.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // printButton
             // 
@@ -301,6 +301,7 @@ namespace SerialBarcodeLabelPrint
             this.MaximizeBox = false;
             this.Name = "ChemoursForm";
             this.Text = "Chemours Label Printing Program";
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.chemoursLayoutPanel.ResumeLayout(false);
             this.chemoursLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

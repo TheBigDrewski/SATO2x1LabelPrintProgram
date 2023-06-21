@@ -83,6 +83,7 @@ namespace SerialBarcodeLabelPrint
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "SATO Label Print Program";
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.mainLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
