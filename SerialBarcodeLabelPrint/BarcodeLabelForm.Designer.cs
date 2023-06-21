@@ -39,6 +39,7 @@ namespace SerialBarcodeLabelPrint
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BarcodeLabelForm));
             this.barcodeLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.printButton = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
@@ -88,7 +89,7 @@ namespace SerialBarcodeLabelPrint
             this.printButton.Text = "Print";
             this.printButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
-            // exit
+            // home
             // 
             this.home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.home.Location = new System.Drawing.Point(334, 394);
@@ -160,10 +161,11 @@ namespace SerialBarcodeLabelPrint
             this.Controls.Add(this.barcodeLayoutPanel);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BarcodeLabelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serial Barcode Label Print Program";
-            this.StartPosition = FormStartPosition.CenterScreen;
             this.barcodeLayoutPanel.ResumeLayout(false);
             this.barcodeLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

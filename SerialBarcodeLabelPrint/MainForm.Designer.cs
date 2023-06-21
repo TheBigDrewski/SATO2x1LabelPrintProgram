@@ -27,6 +27,7 @@ namespace SerialBarcodeLabelPrint
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.chemours = new System.Windows.Forms.Button();
             this.barcode = new System.Windows.Forms.Button();
@@ -80,10 +81,11 @@ namespace SerialBarcodeLabelPrint
             this.Controls.Add(this.mainLayoutPanel);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SATO Label Print Program";
-            this.StartPosition = FormStartPosition.CenterScreen;
             this.mainLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
