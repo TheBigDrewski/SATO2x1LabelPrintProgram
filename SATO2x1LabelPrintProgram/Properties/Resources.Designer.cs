@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SerialBarcodeLabelPrint.Properties {
+namespace SATO2x1LabelPrintProgram.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SerialBarcodeLabelPrint.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SerialBarcodeLabelPrint.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SATO2x1LabelPrintProgram.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,36 @@ namespace SerialBarcodeLabelPrint.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BarcodeLabelExample {
+            get {
+                object obj = ResourceManager.GetObject("BarcodeLabelExample", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChemoursLabelExample {
+            get {
+                object obj = ResourceManager.GetObject("ChemoursLabelExample", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProductionLabelExample {
+            get {
+                object obj = ResourceManager.GetObject("ProductionLabelExample", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

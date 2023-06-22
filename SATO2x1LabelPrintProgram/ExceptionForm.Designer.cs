@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace SerialBarcodeLabelPrint
+namespace SATO2x1LabelPrintProgram
 {
     partial class ExceptionForm
     {

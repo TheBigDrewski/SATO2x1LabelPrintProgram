@@ -1,13 +1,13 @@
-using SATOPrinterAPI;
+﻿using SATOPrinterAPI;
 using System;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SerialBarcodeLabelPrint
+namespace SATO2x1LabelPrintProgram
 {
-    public partial class ChemoursForm : Form
+    public partial class ProductionLabelForm : Form
     {
-        public ChemoursForm()
+        public ProductionLabelForm()
         {
             InitializeComponent();
         }
@@ -55,12 +55,10 @@ namespace SerialBarcodeLabelPrint
                 TCPIPPort = "9100"
             };
 
-            string[] data = new string[] 
-                {   lotTextBox.Text, 
-                    fillDateTextBox.Text, 
-                    netWeightTextBox.Text, 
-                    tareWeightTextBox.Text, 
-                    grossWeightTextBox.Text,
+            string[] data = new string[]
+                {   lotTextBox.Text,
+                    fillDateTextBox.Text,
+                    productTextBox.Text,
                     serialTextBox.Text
                 };
 
@@ -74,16 +72,12 @@ namespace SerialBarcodeLabelPrint
                             "\u001b#E5" +
                             "\u001bZ" +
                             "\u001bA" +
-                            "\u001bH025\u001bV030\u001bRDB00,P10,P10,LOT #:\u001bH195\u001bV030\u001bRDB00,P10,P10,{0}" +
-                            "\u001bH025\u001bV060\u001bRDB00,P10,P10,FILL DATE:\u001bH195\u001bV060\u001bRDB00,P10,P10,{1}" +
-                            "\u001bH025\u001bV090\u001bRDB00,P10,P10,NET WT:\u001bH195\u001bV090\u001bRDB00,P10,P10,{2}" +
-                            "\u001bH025\u001bV120\u001bRDB00,P10,P10,TARE WT:\u001bH195\u001bV120\u001bRDB00,P10,P10,{3}" +
-                            "\u001bH025\u001bV150\u001bRDB00,P10,P10,GROSS WT:\u001bH195\u001bV150\u001bRDB00,P10,P10,{4}" +
-                            "\u001bH025\u001bV180\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV180\u001bRDB00,P10,P10,{5}" +
-                            "\u001bQ{6}\u001bZ",
-                            data[0], data[1], data[2], data[3], data[4], data[5], quantity);
-            
-
+                            "\u001bH025\u001bV040\u001bRDB00,P10,P10,LOT #:\u001bH195\u001bV040\u001bRDB00,P10,P10,{0}" +
+                            "\u001bH025\u001bV080\u001bRDB00,P10,P10,FILL DATE:\u001bH195\u001bV080\u001bRDB00,P10,P10,{1}" +
+                            "\u001bH025\u001bV120\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV120\u001bRDB00,P10,P10,{2}" +
+                            "\u001bH025\u001bV160\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV160\u001bRDB00,P10,P10,{3}" +
+                            "\u001bQ{4}\u001bZ",
+                            data[0], data[1], data[2], data[3], quantity);
             try
             {
                 Success success = new Success();
@@ -141,7 +135,7 @@ namespace SerialBarcodeLabelPrint
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;

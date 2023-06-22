@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SerialBarcodeLabelPrint
+namespace SATO2x1LabelPrintProgram
 {
     public partial class Success : Form
     {

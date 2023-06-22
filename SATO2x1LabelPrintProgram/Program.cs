@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace SerialBarcodeLabelPrint
+namespace SATO2x1LabelPrintProgram
 {
     internal static class Program
     {
