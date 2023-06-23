@@ -59,6 +59,7 @@ namespace SATO2x1LabelPrintProgram
                 {   lotTextBox.Text,
                     fillDateTextBox.Text,
                     productTextBox.Text,
+                    pressureTextBox.Text,
                     serialTextBox.Text
                 };
 
@@ -72,12 +73,13 @@ namespace SATO2x1LabelPrintProgram
                             "\u001b#E5" +
                             "\u001bZ" +
                             "\u001bA" +
-                            "\u001bH025\u001bV040\u001bRDB00,P10,P10,LOT #:\u001bH195\u001bV040\u001bRDB00,P10,P10,{0}" +
-                            "\u001bH025\u001bV080\u001bRDB00,P10,P10,FILL DATE:\u001bH195\u001bV080\u001bRDB00,P10,P10,{1}" +
-                            "\u001bH025\u001bV120\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV120\u001bRDB00,P10,P10,{2}" +
-                            "\u001bH025\u001bV160\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV160\u001bRDB00,P10,P10,{3}" +
+                            "\u001bH025\u001bV030\u001bRDB00,P10,P10,LOT #:\u001bH195\u001bV030\u001bRDB00,P10,P10,{0}" +
+                            "\u001bH025\u001bV065\u001bRDB00,P10,P10,FILL DATE:\u001bH195\u001bV065\u001bRDB00,P10,P10,{1}" +
+                            "\u001bH025\u001bV100\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV100\u001bRDB00,P10,P10,{2}" +
+                            "\u001bH025\u001bV135\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV135\u001bRDB00,P10,P10,{3}" +
+                            "\u001bH025\u001bV170\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV170\u001bRDB00,P10,P10,{4}" +
                             "\u001bQ{4}\u001bZ",
-                            data[0], data[1], data[2], data[3], quantity);
+                            data[0], data[1], data[2], data[3], data[4], quantity);
             try
             {
                 Success success = new Success();
