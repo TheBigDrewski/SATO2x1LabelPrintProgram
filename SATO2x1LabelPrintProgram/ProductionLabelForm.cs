@@ -1,7 +1,9 @@
 ﻿using SATOPrinterAPI;
+//using Excel = Microsoft.Office.Interop.Excel;
 using System;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SATO2x1LabelPrintProgram
 {
@@ -63,6 +65,39 @@ namespace SATO2x1LabelPrintProgram
                     serialTextBox.Text
                 };
 
+            /*string serial = serialTextBox.Text;
+            string[] data;
+            string file;
+            file = string.Format(@"\\mgp199\Engineering\2-Current Employees\JESCHKE\SATO Printer Programs\{0} - 745219 16.xlsx", serial);
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Open(file);
+            Excel.Worksheet worksheet = workbook.Sheets[1];
+            Excel.Range range = worksheet.UsedRange;
+
+            //Fill Date
+            data = range.Cells[12, 3].Value;
+            //Pressure
+            data += range.Cells[14, 3].Value;
+            //Lot Number
+            data += range.Cells[5, 3].Value;
+            //Product
+            if (range.Cells[5,8].Value != "" && range.Cells[5, 8].Value != null)
+            {
+                data += range.Cells[5, 6].Value;
+            }
+            else if (range.Cells[7, 8].Value != "" && range.Cells[7, 8].Value != null)
+            {
+                data += range.Cells[7, 6].Value;
+            }
+            else if (range.Cells[9, 8].Value != "" && range.Cells[9, 8].Value != null)
+            {
+                data += range.Cells[9, 6].Value;
+            }
+            else if (range.Cells[11, 8].Value != "" && range.Cells[11, 8].Value != null)
+            {
+                data += range.Cells[11, 6].Value;
+            }
+            */
             string quantity = printQuantityTextBox.Text;
 
             string sbpl = string.Format(
@@ -76,7 +111,7 @@ namespace SATO2x1LabelPrintProgram
                             "\u001bH025\u001bV030\u001bRDB00,P10,P10,LOT #:\u001bH195\u001bV030\u001bRDB00,P10,P10,{0}" +
                             "\u001bH025\u001bV065\u001bRDB00,P10,P10,FILL DATE:\u001bH195\u001bV065\u001bRDB00,P10,P10,{1}" +
                             "\u001bH025\u001bV100\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV100\u001bRDB00,P10,P10,{2}" +
-                            "\u001bH025\u001bV135\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV135\u001bRDB00,P10,P10,{3}" +
+                            "\u001bH025\u001bV135\u001bRDB00,P10,P10,PRESSURE:\u001bH195\u001bV135\u001bRDB00,P10,P10,{3}" +
                             "\u001bH025\u001bV170\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV170\u001bRDB00,P10,P10,{4}" +
                             "\u001bQ{4}\u001bZ",
                             data[0], data[1], data[2], data[3], data[4], quantity);
@@ -124,6 +159,13 @@ namespace SATO2x1LabelPrintProgram
                 ExceptionForm exceptionForm = new ExceptionForm(ex);
                 exceptionForm.ShowDialog();
             }
+
+            // Close the workbook and release resources
+            //workbook.Close();
+            //excelApp.Quit();
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
 
         }
 
