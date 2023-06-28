@@ -1,9 +1,10 @@
-﻿using SATOPrinterAPI;
-//using Excel = Microsoft.Office.Interop.Excel;
+﻿using Microsoft.Office.Interop.Excel;
+using SATOPrinterAPI;
+using Excel = Microsoft.Office.Interop.Excel;
 using System;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
+using Microsoft.SqlServer.Server;
 
 namespace SATO2x1LabelPrintProgram
 {
@@ -65,39 +66,38 @@ namespace SATO2x1LabelPrintProgram
                     serialTextBox.Text
                 };
 
+            // Picks the cells from an Excel File to automatically import in 
             /*string serial = serialTextBox.Text;
-            string[] data;
-            string file;
-            file = string.Format(@"\\mgp199\Engineering\2-Current Employees\JESCHKE\SATO Printer Programs\{0} - 745219 16.xlsx", serial);
-            Excel.Application excelApp = new Excel.Application();
-            Excel.Workbook workbook = excelApp.Workbooks.Open(file);
-            Excel.Worksheet worksheet = workbook.Sheets[1];
-            Excel.Range range = worksheet.UsedRange;
+            string file = string.Format(@"Z:\Engineering\2-Current Employees\JESCHKE\SATO Printer Programs\{0} - 745219 16.xlsx", serial);
+            string fillDateCell = "C12";
+            string pressureCell = "C14";
+            string lotCell = "C5";
+            string argonCell = "H5";
+            string heliumCell = "H7";
+            string nitrogenCell = "H9";
+            string hydrogenCell = "H11";
+            string[] gasNames = {"Argon", "Helium", "Nitrogen", "Hydrogen" }; 
 
-            //Fill Date
-            data = range.Cells[12, 3].Value;
-            //Pressure
-            data += range.Cells[14, 3].Value;
-            //Lot Number
-            data += range.Cells[5, 3].Value;
-            //Product
-            if (range.Cells[5,8].Value != "" && range.Cells[5, 8].Value != null)
+            data[0] = GetCellValue(file, lotCell);
+            data[1] = GetCellValue(file, fillDateCell);
+            if (GetCellValue(file, argonCell) != null && GetCellValue(file, argonCell) != "")
             {
-                data += range.Cells[5, 6].Value;
+                data[2] = gasNames[0] + " - " + GetCellValue(file, argonCell);
             }
-            else if (range.Cells[7, 8].Value != "" && range.Cells[7, 8].Value != null)
+            else if (GetCellValue(file, heliumCell) != null && GetCellValue(file, heliumCell) != "")
             {
-                data += range.Cells[7, 6].Value;
+                data[2] = gasNames[1] + " - " + GetCellValue(file, heliumCell); 
             }
-            else if (range.Cells[9, 8].Value != "" && range.Cells[9, 8].Value != null)
+            else if (GetCellValue(file, nitrogenCell) != null && GetCellValue(file, nitrogenCell) != "")
             {
-                data += range.Cells[9, 6].Value;
+                data[2] = gasNames[2] + " - " + GetCellValue(file, nitrogenCell);
             }
-            else if (range.Cells[11, 8].Value != "" && range.Cells[11, 8].Value != null)
+            else if (GetCellValue(file, hydrogenCell) != null && GetCellValue(file, hydrogenCell) != "")
             {
-                data += range.Cells[11, 6].Value;
+                data[2] = gasNames[3] + " - " + GetCellValue(file, hydrogenCell);
             }
-            */
+            data[3] = GetCellValue(file, pressureCell);*/
+            
             string quantity = printQuantityTextBox.Text;
 
             string sbpl = string.Format(
@@ -159,14 +159,6 @@ namespace SATO2x1LabelPrintProgram
                 ExceptionForm exceptionForm = new ExceptionForm(ex);
                 exceptionForm.ShowDialog();
             }
-
-            // Close the workbook and release resources
-            //workbook.Close();
-            //excelApp.Quit();
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -186,6 +178,28 @@ namespace SATO2x1LabelPrintProgram
 
                 SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private string GetCellValue(string filePath, string cellAddress)
+        {
+            //Connect to the worksheet
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+            Excel.Worksheet worksheet = workbook.Sheets["OPS-FL-424-F-01"];
+            Excel.Range range = worksheet.Range[cellAddress];
+
+            // Get the value of the specified cell
+            string cellValue = range.Value?.ToString();
+
+            // Clean up resources
+            workbook.Close();
+            excelApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+            return cellValue;
         }
     }
 }

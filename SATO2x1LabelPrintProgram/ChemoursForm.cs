@@ -55,11 +55,11 @@ namespace SATO2x1LabelPrintProgram
                 TCPIPPort = "9100"
             };
 
-            string[] data = new string[] 
-                {   lotTextBox.Text, 
-                    fillDateTextBox.Text, 
-                    netWeightTextBox.Text, 
-                    tareWeightTextBox.Text, 
+            string[] data = new string[]
+                {   lotTextBox.Text,
+                    fillDateTextBox.Text,
+                    netWeightTextBox.Text,
+                    tareWeightTextBox.Text,
                     grossWeightTextBox.Text,
                     serialTextBox.Text
                 };
@@ -82,7 +82,7 @@ namespace SATO2x1LabelPrintProgram
                             "\u001bH025\u001bV180\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV180\u001bRDB00,P10,P10,{5}" +
                             "\u001bQ{6}\u001bZ",
                             data[0], data[1], data[2], data[3], data[4], data[5], quantity);
-            
+
 
             try
             {
@@ -141,7 +141,7 @@ namespace SATO2x1LabelPrintProgram
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;

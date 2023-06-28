@@ -77,7 +77,7 @@ namespace SATO2x1LabelPrintProgram
                                 "\u001bA" +
                                 "\u001bH070\u001bV025\u001bBG02125{0}" +
                                 "\u001bH110\u001bV175\u001bWB0{0}" +
-                                "\u001bQ{1}\u001bZ", 
+                                "\u001bQ{1}\u001bZ",
                                 line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
@@ -162,7 +162,7 @@ namespace SATO2x1LabelPrintProgram
                                 "\u001bA" +
                                 "\u001bH070\u001bV020\u001bBG02125{0}" +
                                 "\u001bH110\u001bV160\u001bWB0{0}" +
-                                "\u001bQ{1}\u001bZ", 
+                                "\u001bQ{1}\u001bZ",
                                 line, quantity);
 
                             byte[] sbplBytes = Encoding.ASCII.GetBytes(sbpl);
