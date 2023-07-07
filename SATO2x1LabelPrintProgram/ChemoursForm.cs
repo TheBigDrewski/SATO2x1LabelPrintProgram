@@ -1,4 +1,3 @@
-using SATOPrinterAPI;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -13,22 +12,12 @@ namespace SATO2x1LabelPrintProgram
         }
 
         private void PrintButton_Click(object sender, EventArgs e)
-        {
-            //
-            // Add a new printer here
-            //
-            /* Printer NewSATO = new Printer
-            {
-                Interface = Printer.InterfaceType.TCPIP,
-                TCPIPAddress = "192.168.1.100",
-                TCPIPPort = "9100"
-            }; */
-
-            string[] data = new string[] 
-                {   lotTextBox.Text, 
-                    fillDateTextBox.Text, 
-                    netWeightTextBox.Text, 
-                    tareWeightTextBox.Text, 
+        {           
+            string[] data = new string[]
+                {   lotTextBox.Text,
+                    fillDateTextBox.Text,
+                    netWeightTextBox.Text,
+                    tareWeightTextBox.Text,
                     grossWeightTextBox.Text,
                     serialTextBox.Text
                 };
@@ -51,20 +40,13 @@ namespace SATO2x1LabelPrintProgram
                             "\u001bH025\u001bV180\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV180\u001bRDB00,P10,P10,{5}" +
                             "\u001bQ{6}\u001bZ",
                             data[0], data[1], data[2], data[3], data[4], data[5], quantity);
-            
+
 
             try
             {
                 Success success = new Success();
-                /*switch (printerComboBox.Text)
-                {
-                    case "NewSATO":
-                        NewSATO.Connect();
-                        NewSATO.Query(Encoding.ASCII.GetBytes(sbpl));
-                        success.ShowDialog();
-                        NewSATO.Disconnect();
-                        break;
-                }*/
+                SATOPrinterFunctions.Print(printerComboBox.Text, sbpl);
+                success.ShowDialog();   
             }
 
             catch (Exception ex)
@@ -85,7 +67,7 @@ namespace SATO2x1LabelPrintProgram
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
