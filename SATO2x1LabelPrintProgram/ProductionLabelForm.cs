@@ -69,7 +69,7 @@ namespace SATO2x1LabelPrintProgram
                             "\u001bH025\u001bV100\u001bRDB00,P10,P10,PRODUCT:\u001bH195\u001bV100\u001bRDB00,P10,P10,{2}" +
                             "\u001bH025\u001bV135\u001bRDB00,P10,P10,PRESSURE:\u001bH195\u001bV135\u001bRDB00,P10,P10,{3}" +
                             "\u001bH025\u001bV170\u001bRDB00,P10,P10,SERIAL #:\u001bH195\u001bV170\u001bRDB00,P10,P10,{4}" +
-                            "\u001bQ{4}\u001bZ",
+                            "\u001bQ{5}\u001bZ",
                             data[0], data[1], data[2], data[3], data[4], quantity);
             try
             {

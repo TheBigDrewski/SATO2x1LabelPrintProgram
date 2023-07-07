@@ -242,6 +242,7 @@ namespace SATO2x1LabelPrintProgram
             "199SATOCT4008",
             "199SATOCT4009",
             "199SATOCT40022",
+            "199SATOCT40033",
             "SATOTest"});
             this.printerComboBox.Location = new System.Drawing.Point(23, 288);
             this.printerComboBox.Name = "printerComboBox";

@@ -123,6 +123,21 @@ namespace SATO2x1LabelPrintProgram
                     _199SATOCT40022.Query(Encoding.ASCII.GetBytes(sbpl));                    
                     _199SATOCT40022.Disconnect();
                     break;
+                case "199SATOCT40033":
+                    //
+                    // 199SATOCT40033 - Building 195 - Production
+                    //
+                    Printer _199SATOCT40033 = new Printer
+                    {
+                        Interface = Printer.InterfaceType.TCPIP,
+                        TCPIPAddress = "10.10.200.34",
+                        TCPIPPort = "9100",
+                        PermanentConnect = true
+                    };
+                    _199SATOCT40033.Connect();
+                    _199SATOCT40033.Query(Encoding.ASCII.GetBytes(sbpl));
+                    _199SATOCT40033.Disconnect();
+                    break;
             }
         }
 
