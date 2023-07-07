@@ -1,4 +1,4 @@
-﻿using SATOPrinterAPI;
+using SATOPrinterAPI;
 using System;
 using System.Text;
 using System.Windows.Forms;
