@@ -1,6 +1,4 @@
-﻿using SATOPrinterAPI;
-using System;
-using System.Text;
+﻿using System;
 using System.Windows.Forms;
 
 namespace SATO2x1LabelPrintProgram

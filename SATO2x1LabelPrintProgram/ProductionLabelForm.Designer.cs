@@ -239,6 +239,7 @@ namespace SATO2x1LabelPrintProgram
             "199SATOCT4004",
             "199SATOCT4006",
             "199SATOCT4007",
+            "199SATOCT4008",
             "199SATOCT4009",
             "199SATOCT40022",
             "SATOTest"});

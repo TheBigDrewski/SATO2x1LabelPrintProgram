@@ -10,7 +10,9 @@ namespace SATO2x1LabelPrintProgram
             switch (selection)
             {
                 case "199SATOCT4003":
+                    //
                     //199SATOCT4003 - Building 200 - Prep Station 4
+                    //
                     Printer _199SATOCT4003 = new Printer
                     {
                         Interface = Printer.InterfaceType.TCPIP,
@@ -23,7 +25,9 @@ namespace SATO2x1LabelPrintProgram
                     break;
 
                 case "199SATOCT4004":
+                    //
                     //199SATOCT4004 - Building 200 - Prep Station 2
+                    //
                     Printer _199SATOCT4004 = new Printer
                     {
                         Interface = Printer.InterfaceType.TCPIP,
@@ -35,7 +39,9 @@ namespace SATO2x1LabelPrintProgram
                     _199SATOCT4004.Disconnect();
                     break;
                 case "199SATOCT4006":
+                    //
                     //199SATOCT4006 - Building 200 - Prep Station 3
+                    //
                     Printer _199SATOCT4006 = new Printer
                     {
                         Interface = Printer.InterfaceType.TCPIP,
@@ -47,7 +53,9 @@ namespace SATO2x1LabelPrintProgram
                     _199SATOCT4006.Disconnect();
                     break;
                 case "199SATOCT4007":
+                    //
                     //199SATOCT4007 - Building 230 - Manual EPA Fill
+                    //
                     Printer _199SATOCT4007 = new Printer
                     {
                         Interface = Printer.InterfaceType.TCPIP,
@@ -58,8 +66,24 @@ namespace SATO2x1LabelPrintProgram
                     _199SATOCT4007.Query(Encoding.ASCII.GetBytes(sbpl));
                     _199SATOCT4007.Disconnect();
                     break;
+                case "199SATOCT4008":
+                    //
+                    //199SATOCT4008 - Building 197 - Production Desks
+                    //
+                    Printer _199SATOCT4008 = new Printer
+                    {
+                        Interface = Printer.InterfaceType.TCPIP,
+                        TCPIPAddress = "10.10.200.31",
+                        TCPIPPort = "9100"
+                    };
+                    _199SATOCT4008.Connect();
+                    _199SATOCT4008.Query(Encoding.ASCII.GetBytes(sbpl));
+                    _199SATOCT4008.Disconnect();
+                    break;
                 case "199SATOCT4009":
+                    //
                     //199SATOCT4009 - Building 210 - Outside Break Room
+                    //
                     Printer _199SATOCT4009 = new Printer
                     {
                         Interface = Printer.InterfaceType.TCPIP,
