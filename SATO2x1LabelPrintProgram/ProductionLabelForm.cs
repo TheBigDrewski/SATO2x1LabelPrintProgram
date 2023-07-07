@@ -1,10 +1,6 @@
-﻿using Microsoft.Office.Interop.Excel;
-using SATOPrinterAPI;
-using Excel = Microsoft.Office.Interop.Excel;
-using System;
+﻿using System;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.SqlServer.Server;
 
 namespace SATO2x1LabelPrintProgram
 {
@@ -17,47 +13,6 @@ namespace SATO2x1LabelPrintProgram
 
         private void PrintButton_Click(object sender, EventArgs e)
         {
-            //
-            // SATOTest
-            //
-            Printer SATOTest = new Printer
-            {
-                Interface = Printer.InterfaceType.TCPIP,
-                TCPIPAddress = "10.10.200.82",
-                TCPIPPort = "9100"
-            };
-            //
-            // 199SATOCT40022 - Building 200 - Receiving
-            //
-            Printer _199SATOCT40022 = new Printer
-            {
-                Interface = Printer.InterfaceType.TCPIP,
-                TCPIPAddress = "10.10.199.225",
-                TCPIPPort = "9100",
-                PermanentConnect = true
-            };
-            //199SATOCT4003 - Building 200 - Prep Station 4
-            Printer _199SATOCT4003 = new Printer
-            {
-                Interface = Printer.InterfaceType.TCPIP,
-                TCPIPAddress = "10.10.199.220",
-                TCPIPPort = "9100"
-            };
-            //199SATOCT4004 - Building 200 - Prep Station 2
-            Printer _199SATOCT4004 = new Printer
-            {
-                Interface = Printer.InterfaceType.TCPIP,
-                TCPIPAddress = "10.10.200.27",
-                TCPIPPort = "9100"
-            };
-            //199SATOCT4006 - Building 200 - Prep Station 3
-            Printer _199SATOCT4006 = new Printer
-            {
-                Interface = Printer.InterfaceType.TCPIP,
-                TCPIPAddress = "10.10.200.29",
-                TCPIPPort = "9100"
-            };
-
             string[] data = new string[]
                 {   lotTextBox.Text,
                     fillDateTextBox.Text,
@@ -67,6 +22,7 @@ namespace SATO2x1LabelPrintProgram
                 };
 
             // Picks the cells from an Excel File to automatically import in 
+            //
             /*string serial = serialTextBox.Text;
             string file = string.Format(@"Z:\Engineering\2-Current Employees\JESCHKE\SATO Printer Programs\{0} - 745219 16.xlsx", serial);
             string fillDateCell = "C12";
@@ -76,7 +32,7 @@ namespace SATO2x1LabelPrintProgram
             string heliumCell = "H7";
             string nitrogenCell = "H9";
             string hydrogenCell = "H11";
-            string[] gasNames = {"Argon", "Helium", "Nitrogen", "Hydrogen" }; 
+            string[] gasNames = { "Argon", "Helium", "Nitrogen", "Hydrogen" };
 
             data[0] = GetCellValue(file, lotCell);
             data[1] = GetCellValue(file, fillDateCell);
@@ -86,7 +42,7 @@ namespace SATO2x1LabelPrintProgram
             }
             else if (GetCellValue(file, heliumCell) != null && GetCellValue(file, heliumCell) != "")
             {
-                data[2] = gasNames[1] + " - " + GetCellValue(file, heliumCell); 
+                data[2] = gasNames[1] + " - " + GetCellValue(file, heliumCell);
             }
             else if (GetCellValue(file, nitrogenCell) != null && GetCellValue(file, nitrogenCell) != "")
             {
@@ -97,7 +53,7 @@ namespace SATO2x1LabelPrintProgram
                 data[2] = gasNames[3] + " - " + GetCellValue(file, hydrogenCell);
             }
             data[3] = GetCellValue(file, pressureCell);*/
-            
+
             string quantity = printQuantityTextBox.Text;
 
             string sbpl = string.Format(
@@ -118,40 +74,8 @@ namespace SATO2x1LabelPrintProgram
             try
             {
                 Success success = new Success();
-                switch (printerComboBox.Text)
-                {
-                    case "199SATOCT4003":
-                        _199SATOCT4003.Connect();
-                        _199SATOCT4003.Query(Encoding.ASCII.GetBytes(sbpl));
-                        success.ShowDialog();
-                        _199SATOCT4003.Disconnect();
-                        break;
-
-                    case "199SATOCT4004":
-                        _199SATOCT4004.Connect();
-                        _199SATOCT4004.Query(Encoding.ASCII.GetBytes(sbpl));
-                        success.ShowDialog();
-                        _199SATOCT4004.Disconnect();
-                        break;
-                    case "199SATOCT4006":
-                        _199SATOCT4006.Connect();
-                        _199SATOCT4006.Query(Encoding.ASCII.GetBytes(sbpl));
-                        success.ShowDialog();
-                        _199SATOCT4006.Disconnect();
-                        break;
-                    case "SATOTest":
-                        SATOTest.Connect();
-                        SATOTest.Query(Encoding.ASCII.GetBytes(sbpl));
-                        success.ShowDialog();
-                        SATOTest.Disconnect();
-                        break;
-                    case "199SATOCT40022":
-                        _199SATOCT40022.Connect();
-                        _199SATOCT40022.Query(Encoding.ASCII.GetBytes(sbpl));
-                        success.ShowDialog();
-                        _199SATOCT40022.Disconnect();
-                        break;
-                }
+                SATOPrinterFunctions.Print(printerComboBox.Text, sbpl);
+                success.ShowDialog();
             }
 
             catch (Exception ex)
@@ -180,7 +104,7 @@ namespace SATO2x1LabelPrintProgram
             }
         }
 
-        private string GetCellValue(string filePath, string cellAddress)
+        /*private string GetCellValue(string filePath, string cellAddress)
         {
             //Connect to the worksheet
             Excel.Application excelApp = new Excel.Application();
@@ -200,6 +124,6 @@ namespace SATO2x1LabelPrintProgram
             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
 
             return cellValue;
-        }
+        }*/
     }
 }
